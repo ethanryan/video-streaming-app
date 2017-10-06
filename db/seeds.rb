@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Subscriber.create({first_name: "Bob", payment_type: "credit card"})
+
+CreditCard.create({subscriber_id: 1, account_number: 11111111, issuer: "Visa"})
+
+Account.create({subscriber_id: 1})
+
+Plan.create({account_id: 1, tier: "Gold"})

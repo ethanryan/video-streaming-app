@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20171006170737) do
 
   create_table "plans", force: :cascade do |t|
     t.integer "account_id"
-    t.string "type"
+    t.string "tier"
     t.integer "price"
     t.integer "streaming_limit"
     t.datetime "created_at", null: false
