@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content_provider_id: 1
+  exclusive: false
+  terms_in_years: 1
+  start_date: 2017-10-06
+  end_date: 2017-10-06
+
+two:
+  content_provider_id: 1
+  exclusive: false
+  terms_in_years: 1
+  start_date: 2017-10-06
+  end_date: 2017-10-06

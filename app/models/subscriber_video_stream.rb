@@ -1,0 +1,2 @@
+class SubscriberVideoStream < ApplicationRecord
+end

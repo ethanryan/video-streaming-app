@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  license_id: 1
+  genre_id: 1
+  title: MyString
+  type: 
+  concurrent_subscriber_limit: 1
+
+two:
+  license_id: 1
+  genre_id: 1
+  title: MyString
+  type: 
+  concurrent_subscriber_limit: 1

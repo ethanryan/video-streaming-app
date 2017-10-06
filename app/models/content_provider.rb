@@ -1,0 +1,2 @@
+class ContentProvider < ApplicationRecord
+end

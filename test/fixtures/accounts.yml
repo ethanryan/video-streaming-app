@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subscriber_id: 1
+  start_date: 
+  free_expired: false
+
+two:
+  subscriber_id: 1
+  start_date: 
+  free_expired: false
