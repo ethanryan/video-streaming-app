@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20171006170737) do
     t.integer "license_id"
     t.integer "genre_id"
     t.string "title"
-    t.string "type"
+    t.string "content_type"
     t.integer "concurrent_subscriber_limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

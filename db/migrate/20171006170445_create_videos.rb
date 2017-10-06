@@ -4,7 +4,7 @@ class CreateVideos < ActiveRecord::Migration[5.1]
       t.integer :license_id
       t.integer :genre_id
       t.string :title
-      t.string :type
+      t.string :content_type
       t.integer :concurrent_subscriber_limit
 
       t.timestamps
