@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20171006170737) do
 
   create_table "credit_cards", force: :cascade do |t|
     t.integer "subscriber_id"
-    t.integer "account_number"
+    t.string "account_number"
     t.string "issuer"
     t.date "expiration_date"
     t.datetime "created_at", null: false
