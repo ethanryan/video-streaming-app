@@ -17,7 +17,7 @@ Plan.create({account_id: 1, tier: "Gold"})
 
 SubscriberVideoStream.create({subscriber_id: 1, video_id: 1})
 
-Video.create({license_id: 1, genre_id: 1, title: "Alien", content_type: "movie", concurrent_subscriber_limit: 25})
+Video.create({content_provider_id: 1, genre_id: 1, title: "Alien", content_type: "movie", concurrent_subscriber_limit: 25})
 
 Genre.create({name: "horror"})
 
