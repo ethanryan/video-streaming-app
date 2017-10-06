@@ -89,6 +89,7 @@ end
 1000.times do |index|
   SubscriberVideoStream.create({
     subscriber_id: rand(1..50),
-    video_id: rand(1..500)
+    video_id: rand(1..500),
+    date: Date.new(2017,1,rand(1..31))
     })
 end
