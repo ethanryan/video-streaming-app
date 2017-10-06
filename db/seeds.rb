@@ -14,3 +14,13 @@ CreditCard.create({subscriber_id: 1, account_number: 11111111, issuer: "Visa"})
 Account.create({subscriber_id: 1})
 
 Plan.create({account_id: 1, tier: "Gold"})
+
+SubscriberVideoStream.create({subscriber_id: 1, video_id: 1})
+
+Video.create({license_id: 1, genre_id: 1, title: "Alien", content_type: "movie", concurrent_subscriber_limit: 25})
+
+Genre.create({name: "horror"})
+
+License.create({content_provider_id: 1, exclusive: 1, terms_in_years: 3})
+
+ContentProvider.create({name: "HBO"})
