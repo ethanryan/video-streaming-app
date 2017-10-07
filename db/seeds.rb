@@ -27,7 +27,7 @@ require 'faker'
 #
 # Video.create({license_id: 1, genre_id: 1, title: "Alien", content_type: "movie", concurrent_subscriber_limit: 25})
 #
-# SubscriberVideoStream.create({subscriber_id: 1, video_id: 1})
+# VideoStream.create({subscriber_id: 1, video_id: 1})
 
 50.times do
   Subscriber.create({
@@ -99,7 +99,7 @@ end
 end
 
 800.times do |index|
-  SubscriberVideoStream.create({
+  VideoStream.create({
     subscriber_id: rand(1..50),
     video_id: rand(1..500),
     # date: Date.new(2017,1,rand(1..31))
@@ -116,11 +116,11 @@ end
 # (((((((((Below words! returns top 20 video titles for subscriber ID #1 streamed in January 2017. To change subscriber ID, simple change the number in the first "where" method.))))))))))))
 #
 #
-# SubscriberVideoStream.joins(:video).where('subscriber_id' => 1).where(date: Date.new(2017,1,1)..Date.new(2017,1,-1)).group("title").order("count_title desc").limit(20).count("title")
+# VideoStream.joins(:video).where('subscriber_id' => 1).where(date: Date.new(2017,1,1)..Date.new(2017,1,-1)).group("title").order("count_title desc").limit(20).count("title")
 #
 # OR CAN ORDER LIKE THIS:
 #
-# SubscriberVideoStream.where('subscriber_id' => 1).where(date: Date.new(2017,1,1)..Date.new(2017,1,-1)).joins(:video).group("title").order("count_title desc").limit(20).count("title")
+# VideoStream.where('subscriber_id' => 1).where(date: Date.new(2017,1,1)..Date.new(2017,1,-1)).joins(:video).group("title").order("count_title desc").limit(20).count("title")
 #
 #
 # ((((Both seem to take the same amount of time)))))
@@ -131,7 +131,7 @@ end
 
 # should be something like::::
 #
-# SELECT  COUNT(title) AS count_title, title AS title FROM "subscriber_video_streams" INNER JOIN "videos" ON "videos"."id" = "subscriber_video_streams"."video_id" WHERE "subscriber_video_streams"."subscriber_id" = ? AND ("subscriber_video_streams"."date" BETWEEN ? AND ?) GROUP BY title ORDER BY count_title desc LIMIT ?  [["subscriber_id", 1], ["date", "2017-01-01"], ["date", "2017-01-31"], ["LIMIT", 20]]
+# SELECT  COUNT(title) AS count_title, title AS title FROM "video_streams" INNER JOIN "videos" ON "videos"."id" = "video_streams"."video_id" WHERE "video_streams"."subscriber_id" = ? AND ("video_streams"."date" BETWEEN ? AND ?) GROUP BY title ORDER BY count_title desc LIMIT ?  [["subscriber_id", 1], ["date", "2017-01-01"], ["date", "2017-01-31"], ["LIMIT", 20]]
 # ...above is what SQL fires in console when I run the ActiveRecord query....
 
 
