@@ -9,23 +9,25 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Subscriber.create({first_name: "Bob", payment_type: "credit card"})
+#commenting these out......
 
-CreditCard.create({subscriber_id: 1, account_number: "1111111111111111", issuer: "Visa"})
-
-Account.create({subscriber_id: 1})
-
-Plan.create({account_id: 1, tier: "Gold"})
-
-Genre.create({name: "horror"})
-
-ContentProvider.create({name: "HBO"})
-
-License.create({content_provider_id: 1, exclusive: 1, terms_in_years: 3})
-
-Video.create({license_id: 1, genre_id: 1, title: "Alien", content_type: "movie", concurrent_subscriber_limit: 25})
-
-SubscriberVideoStream.create({subscriber_id: 1, video_id: 1})
+# Subscriber.create({first_name: "Bob", payment_type: "credit card"})
+#
+# CreditCard.create({subscriber_id: 1, account_number: "1111111111111111", issuer: "Visa"})
+#
+# Account.create({subscriber_id: 1})
+#
+# Plan.create({account_id: 1, tier: "Gold"})
+#
+# Genre.create({name: "horror"})
+#
+# ContentProvider.create({name: "HBO"})
+#
+# License.create({content_provider_id: 1, exclusive: 1, terms_in_years: 3})
+#
+# Video.create({license_id: 1, genre_id: 1, title: "Alien", content_type: "movie", concurrent_subscriber_limit: 25})
+#
+# SubscriberVideoStream.create({subscriber_id: 1, video_id: 1})
 
 50.times do
   Subscriber.create({
@@ -86,10 +88,48 @@ end
     })
 end
 
-1000.times do |index|
+500.times do |index|
+  Video.create({
+    license_id: index,
+    genre_id: rand(1..10),
+    title: "Alien",
+    content_type: "movie",
+    concurrent_subscriber_limit: 25
+    })
+end
+
+800.times do |index|
   SubscriberVideoStream.create({
     subscriber_id: rand(1..50),
     video_id: rand(1..500),
-    date: Date.new(2017,1,rand(1..31))
+    # date: Date.new(2017,1,rand(1..31))
+    date: Date.new(2017,rand(1..2),15) #everything streams in either January or February
     })
 end
+
+
+
+
+
+
+
+# (((((((((Below words! returns top 20 video titles for subscriber ID #1 streamed in January 2017. To change subscriber ID, simple change the number in the first "where" method.))))))))))))
+#
+#
+# SubscriberVideoStream.joins(:video).where('subscriber_id' => 1).where(date: Date.new(2017,1,1)..Date.new(2017,1,-1)).group("title").order("count_title desc").limit(20).count("title")
+#
+# OR CAN ORDER LIKE THIS:
+#
+# SubscriberVideoStream.where('subscriber_id' => 1).where(date: Date.new(2017,1,1)..Date.new(2017,1,-1)).joins(:video).group("title").order("count_title desc").limit(20).count("title")
+#
+#
+# ((((Both seem to take the same amount of time)))))
+#
+
+# NOW JUST NEED TO TRANSLATE THE ABOVE ActiveRecord query into a raw SQL query, and I'll be done with this question.
+#
+
+# ((below works, can make sure my SQL query is right by writing it out similar to below, till I get the correct result))
+#
+# sql = "SELECT * FROM videos WHERE (videos.id = 10) LIMIT 1"
+# records_array = ActiveRecord::Base.connection.execute(sql)
