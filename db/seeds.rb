@@ -129,6 +129,12 @@ end
 # NOW JUST NEED TO TRANSLATE THE ABOVE ActiveRecord query into a raw SQL query, and I'll be done with this question.
 #
 
+# should be something like::::
+#
+# SELECT  COUNT(title) AS count_title, title AS title FROM "subscriber_video_streams" INNER JOIN "videos" ON "videos"."id" = "subscriber_video_streams"."video_id" WHERE "subscriber_video_streams"."subscriber_id" = ? AND ("subscriber_video_streams"."date" BETWEEN ? AND ?) GROUP BY title ORDER BY count_title desc LIMIT ?  [["subscriber_id", 1], ["date", "2017-01-01"], ["date", "2017-01-31"], ["LIMIT", 20]]
+# ...above is what SQL fires in console when I run the ActiveRecord query....
+
+
 # ((below works, can make sure my SQL query is right by writing it out similar to below, till I get the correct result))
 #
 # sql = "SELECT * FROM videos WHERE (videos.id = 10) LIMIT 1"

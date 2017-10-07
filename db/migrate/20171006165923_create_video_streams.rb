@@ -1,6 +1,6 @@
-class CreateSubscriberVideoStreams < ActiveRecord::Migration[5.1]
+class CreateVideoStreams < ActiveRecord::Migration[5.1]
   def change
-    create_table :subscriber_video_streams do |t|
+    create_table :video_streams do |t|
       t.integer :subscriber_id
       t.integer :video_id
       t.date :date

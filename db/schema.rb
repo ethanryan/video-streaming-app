@@ -60,22 +60,22 @@ ActiveRecord::Schema.define(version: 20171006170737) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "subscriber_video_streams", force: :cascade do |t|
-    t.integer "subscriber_id"
-    t.integer "video_id"
-    t.date "date"
-    t.integer "duration"
-    t.string "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "subscribers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email_address"
     t.integer "zip_code"
     t.string "payment_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "video_streams", force: :cascade do |t|
+    t.integer "subscriber_id"
+    t.integer "video_id"
+    t.date "date"
+    t.integer "duration"
+    t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
